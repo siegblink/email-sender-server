@@ -17,7 +17,14 @@ passport.use(
   )
 )
 
+app.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+  })
+)
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT, function() {
-  console.log(`Server running on port ${port}`)
+  console.log(`Server running on port ${PORT}`)
 })
